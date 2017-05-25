@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 注意，AppUtil需要纳入Spring容器 -->
+    <context:component-scan base-package="com.nekolr.ztree"></context:component-scan>
+
+    <!--<bean class="com.nekolr.simvc.utils.AppUtil"></bean>-->
+
+    <!--<bean id="ztreeDao" class="com.nekolr.ztree.dao.ZtreeDaoImpl"></bean>-->
+
+    <!--<bean id="ztreeService" class="com.nekolr.ztree.service.ZtreeServiceImpl">-->
+        <!--<property name="ztreeDao" ref="ztreeDao"></property>-->
+    <!--</bean>-->
+
+    <!--<bean id="ztreeController" class="com.nekolr.ztree.controller.ZtreeController">-->
+        <!--<property name="ztreeService" ref="ztreeService"></property>-->
+    <!--</bean>-->
+
+</beans>

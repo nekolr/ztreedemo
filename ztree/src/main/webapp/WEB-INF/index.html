@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="../css/demo.css" type="text/css">
+    <link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css">
+</head>
+<body>
+    <ul id="treeDemo" class="ztree"></ul>
+</body>
+<script src="../js/lib/jquery-3.2.1.js"></script>
+<script src="../js/lib/jquery.ztree.all.js"></script>
+<script type="text/javascript">
+    var zTreeObj;
+    var zNodes;
+    var setting = {
+        data:{
+            key:{
+                name:"deptname"
+            },
+            simpleData:{
+                enable:true,
+                idKey:"deptid",
+                pIdKey:"parentid",
+                rootPId:0
+            }
+        }
+    };
+    $(document).ready(function(){
+
+        $.ajax("/ztree/getData.do",{
+            data:"",
+            type:"get",
+            success:function (data) {
+                console.log(data)
+                zNodes = eval('('+data+')');
+                zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+            },
+            error:function (msg) {
+                console.error(msg)
+            }
+        });
+    });
+</script>
+</html>
