@@ -8,8 +8,11 @@ import com.nekolr.ztree.entity.ZtreeNode;
 import com.nekolr.ztree.service.ZtreeService;
 import com.nekolr.ztree.utils.AppUtil;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -26,16 +29,19 @@ public class ZtreeController {
 
     @RequestMapping(value = "/getData.do", method = RequestMethod.GET)
     @ResponseBody
-    public List<ZtreeNode> getData(){
+    public List<ZtreeNode> getData(HttpServletRequest request, HttpServletResponse response, String param){
         List<ZtreeNode> list = ztreeService.getAll();
-        for(Iterator<ZtreeNode> iterator = list.iterator();iterator.hasNext();){
-            ZtreeNode node = iterator.next();
-            if(node.getParentid().equals(0L)){
-                node.setParent(true);
-            }else{
-                node.setParent(false);
+        if(!Objects.isNull(list)) {
+            for(Iterator<ZtreeNode> iterator = list.iterator();iterator.hasNext();){
+                ZtreeNode node = iterator.next();
+                if(node.getParentid().equals(0L)){
+                    node.setParent(true);
+                }else{
+                    node.setParent(false);
+                }
             }
         }
+
         return list;
     }
 }
