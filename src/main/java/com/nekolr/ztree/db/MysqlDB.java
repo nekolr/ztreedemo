@@ -16,7 +16,7 @@ public class MysqlDB {
     private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/emp?useUnicode=true&characterEncoding=utf8";
     private static final String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
     private static final String MYSQL_USERNAME = "root";
-    private static final String MYSQL_PASSWORD = "12345678";
+    private static final String MYSQL_PASSWORD = "root";
 
     public static Connection connection;
 

@@ -24,7 +24,7 @@ public class ZtreeController {
 
     @RequestMapping(value = "/index.do", method = RequestMethod.GET)
     public String index(){
-        return "index";
+        return "/WEB-INF/index.html";
     }
 
     @RequestMapping(value = "/getData.do", method = RequestMethod.GET)
